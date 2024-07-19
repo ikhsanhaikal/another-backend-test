@@ -23,15 +23,9 @@ class CreateDepositoType extends Migration
             'yearly' => [
                 'type' => 'FLOAT',
             ],
-            'account_id' => [
-                'type'           => 'INT',
-                'constraint'     => 5,
-                'unsigned'       => true,
-            ]
         ];
 
-        $this->forge->addField($fields)->addPrimaryKey("id")
-        ->addForeignKey('account_id', 'accounts', 'id')->addUniqueKey("account_id");
+        $this->forge->addField($fields)->addPrimaryKey("id"); 
         $this->forge->createTable("deposito_types");
     }
 

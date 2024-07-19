@@ -15,9 +15,16 @@ class CreateAccount extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true
             ],
+            'name' => [
+                'type' => 'VARCHAR',
+                'constraint' => 100,
+                'null' => true,
+                'default' => 'tabungan'
+            ],
             'balance' => [
                 'type' => 'float',
-                'unsigned' => true
+                'unsigned' => true,
+                'null' => true
             ],
             'customer_id' => [
                 'type'           => 'INT',
@@ -34,7 +41,6 @@ class CreateAccount extends Migration
 
     public function down()
     {
-        //
         $this->forge->dropTable("accounts");
     }
 }
